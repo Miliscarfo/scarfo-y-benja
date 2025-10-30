@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 1 - Asistencia</title>
+</head>
+<body>
+  <h2>Confirmar asistencia a la fiesta</h2>
+
+  <label>Nombre: </label>
+  <input type="text" id="nombre"><br><br>
+
+  <label>¿Asistirás?</label><br>
+  <input type="radio" name="asistencia" value="si"> Sí<br>
+  <input type="radio" name="asistencia" value="no"> No<br><br>
+
+  <button onclick="confirmarAsistencia()">Enviar</button>
+
+  <p id="mensaje"></p>
+
+  <script>
+    function confirmarAsistencia() {
+      const nombre = document.getElementById("nombre").value;
+      const asistencia = document.querySelector('input[name="asistencia"]:checked');
+
+      if (!nombre || !asistencia) {
+        document.getElementById("mensaje").innerText = "Por favor, completá todos los campos.";
+        return;
+      }
+
+      if (asistencia.value === "si") {
+        document.getElementById("mensaje").innerText = `¡Gracias por confirmar, ${nombre}! Nos vemos en la fiesta `;
+      } else {
+        document.getElementById("mensaje").innerText = `¡Qué pena, ${nombre}! Te vamos a extrañar `;
+      }
+    }
+  </script>
+</body>
+</html>
+

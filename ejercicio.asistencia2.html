@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 2 - Promedio</title>
+</head>
+<body>
+  <h2>Calcular Promedio</h2>
+
+  <label>Nota 1:</label>
+  <input type="number" id="nota1" min="0" max="10"><br>
+  <label>Nota 2:</label>
+  <input type="number" id="nota2" min="0" max="10"><br>
+  <label>Nota 3:</label>
+  <input type="number" id="nota3" min="0" max="10"><br><br>
+
+  <button onclick="calcularPromedio()">Calcular</button>
+
+  <p id="resultado"></p>
+
+  <script>
+    function calcularPromedio() {
+      const n1 = parseFloat(document.getElementById("nota1").value);
+      const n2 = parseFloat(document.getElementById("nota2").value);
+      const n3 = parseFloat(document.getElementById("nota3").value);
+
+      if (isNaN(n1) || isNaN(n2) || isNaN(n3)) {
+        document.getElementById("resultado").innerText = "Completá las tres notas.";
+        return;
+      }
+
+      const promedio = ((n1 + n2 + n3) / 3).toFixed(2);
+      const mensaje = promedio >= 6 
+        ? `Tu promedio es ${promedio}. ¡Aprobaste! `
+        : `Tu promedio es ${promedio}. Necesitás repasar. `;
+
+      document.getElementById("resultado").innerText = mensaje;
+    }
+  </script>
+</body>
+</html>
+

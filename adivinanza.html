@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juego de Adivinanza</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(to bottom right, #74b9ff, #a29bfe);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #0984e3;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #74b9ff;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎯 Juego de Adivinanza</h1>
+  <p>Haz clic en el botón para intentar adivinar el número secreto.</p>
+  <button onclick="jugar()">Jugar</button>
+
+  <script>
+    function jugar() {
+      const numeroSecreto = 7; // Número secreto definido en el código
+      const intento = prompt("Adivina el número secreto (entre 1 y 10):");
+
+      if (intento === null) {
+        alert("Juego cancelado. ¡Hasta la próxima!");
+        return;
+      }
+
+      if (parseInt(intento) === numeroSecreto) {
+        alert("🎉 ¡Felicidades! Adivinaste el número secreto.");
+      } else {
+        alert(`❌ Lo siento, el número secreto era ${numeroSecreto}.`);
+      }
+    }
+  </script>
+
+</body>
+</html>
